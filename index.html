@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typy Dnia - Bukmacherka</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="badge">MVP</p>
+        <h1>Typy bukmacherskie na dziś</h1>
+        <p>
+          Filtruj typy po <strong>dacie</strong>, <strong>dyscyplinie</strong> oraz
+          <strong>modelu dostępu</strong> (darmowe / płatne).
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="filters-panel">
+        <h2>Filtry</h2>
+        <div class="filters-grid">
+          <label class="filter-field" for="tips-date">
+            Data (kalendarz)
+            <input type="date" id="tips-date" />
+          </label>
+
+          <label class="filter-field" for="discipline-filter">
+            Dyscyplina
+            <select id="discipline-filter"></select>
+          </label>
+
+          <label class="filter-field" for="access-filter">
+            Rodzaj typów
+            <select id="access-filter">
+              <option value="all">Wszystkie</option>
+              <option value="free">Darmowe</option>
+              <option value="premium">Płatne</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title-row">
+          <div>
+            <h2>Lista typów</h2>
+            <p class="section-description">
+              Typy premium są zamazane do momentu aktywacji podglądu.
+            </p>
+          </div>
+          <button id="premium-toggle" class="premium-button">
+            Odblokuj podgląd premium
+          </button>
+        </div>
+
+        <div id="tips-list" class="tips-grid"></div>
+      </section>
+    </main>
+
+    <template id="tip-card-template">
+      <article class="tip-card">
+        <div class="tag-row">
+          <span class="tag discipline-tag"></span>
+          <span class="tag access-tag"></span>
+        </div>
+        <p class="league"></p>
+        <h3 class="match"></h3>
+        <p class="prediction"></p>
+        <div class="meta-row">
+          <span class="odds"></span>
+          <span class="confidence"></span>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
